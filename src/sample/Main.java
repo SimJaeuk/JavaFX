@@ -4,23 +4,30 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+
+
 public class Main extends Application {
-    Stage window;
-    Scene scene1, scene2;
+
+    FXMLLoader loader;
+    Parent root;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        loader = new FXMLLoader(getClass().getResource("sample.fxml"));
 
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("환영합니다!");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        root = loader.load();
 
+        primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
 
